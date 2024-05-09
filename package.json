@@ -21,6 +21,7 @@
     "sequelize": "^6.37.2"
   },
   "devDependencies": {
+    "netlify-cli": "^17.23.2",
     "sequelize-cli": "^6.6.2"
   }
 }
