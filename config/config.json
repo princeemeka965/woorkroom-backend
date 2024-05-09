@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "freedb_woorkroom_user",
+    "password": "@f8!wNM%?CtNsPM",
+    "database": "freedb_woorkroom",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "freedb_woorkroom_user",
+    "password": "@f8!wNM%?CtNsPM",
+    "database": "freedb_woorkroom",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "freedb_woorkroom_user",
+    "password": "@f8!wNM%?CtNsPM",
+    "database": "freedb_woorkroom",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql"
+  }
+}
