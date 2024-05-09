@@ -26,8 +26,6 @@ const sendOTP = (async (req, res) => {
             html: `<b>Your email validation OTP is ${randomNumber}</b> <p>This OTP expires in the next 90 secs</p>`, // html body
         });
 
-        console.log(info.response)
-
         res.status(200).json({ message: 'OTP sent', data: { randomNumber } });
     }
     catch (error) {
