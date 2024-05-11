@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const { createHash } = require('crypto');
 
 const sendOTP = (async (req, res) => {
     const config = {
@@ -16,17 +17,19 @@ const sendOTP = (async (req, res) => {
 
     try {
         // Generate a random number between 0 and 999 (inclusive)
-        const randomNumber = Math.floor(1000 + Math.random() * 9000);
+        const randomToken = Math.floor(1000 + Math.random() * 9000);
 
         const info = await transporter.sendMail({
             from: '"WoorkRoom" <carradotechnologiesltd@gmail.com>', // sender address
             to: `${req.body.email}`, // list of receivers
             subject: "Email Validation", // Subject line
             text: `You've reset your password`, // plain text body
-            html: `<b>Your email validation OTP is ${randomNumber}</b> <p>This OTP expires in the next 90 secs</p>`, // html body
+            html: `<b>Your email validation OTP is ${randomToken}</b> <p>This OTP expires in the next 90 secs</p>`, // html body
         });
 
-        res.status(200).json({ message: 'OTP sent', data: { randomNumber } });
+        const hashedToken = createHash('sha256').update(randomToken).digest('hex');
+
+        res.status(200).json({ message: 'OTP sent', __rcd_mpIv: hashedToken });
     }
     catch (error) {
         console.error('Error sending OTP email:', error);
