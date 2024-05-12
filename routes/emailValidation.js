@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    sendOTP
+    sendOTP,
+    verifyOTP
 } = require('../controllers/emailValidation.js');
 
 router.post('/send-otp', sendOTP);
+router.post('/verifyOTP', verifyOTP)
 
 module.exports = router
