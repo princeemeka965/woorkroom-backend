@@ -51,6 +51,8 @@ const verifyOTP = (async (req, res) => {
     const retrieveDBToken = await EmailDB.findOne({ where: { address: req.body.email, token: hashedToken } });
 
     if (retrieveDBToken) {
+        // Destroy Email and Table data from DB.
+        await EmailDB.destroy({ where: { address: req.body.email } });
         res.status(200).json({ message: 'Email verified successfully' });
     }
     else {
