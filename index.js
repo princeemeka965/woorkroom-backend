@@ -3,6 +3,7 @@ const { Sequelize } = require('sequelize');
 const config = require('./config/config.json');
 const cors = require('cors');
 const emailValidation = require('./routes/emailValidation');
+const authentication = require('./routes/authentication');
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 
 app.use('/email', emailValidation);
+app.use('/users', authentication);
 
 
 // Initialize Sequelize
