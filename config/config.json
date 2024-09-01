@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "freedb_woorkroom",
-    "password": "b4DcK2*aQJb!R4Z",
-    "database": "freedb_woorkroom",
+    "username": "freedb_meeting_user",
+    "password": "yFVzt$76Vc2#NU&",
+    "database": "freedb_meeting_db",
     "host": "sql.freedb.tech",
     "dialect": "mysql"
   },
