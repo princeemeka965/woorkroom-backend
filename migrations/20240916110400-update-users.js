@@ -9,11 +9,6 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.addColumn('Users', 'userId', {
-      type: Sequelize.UUID,
-      allowNull: true, // or false, depending on your requirements
-      defaultValue: null, // or any default value you want to set
-    });
   },
 
   async down (queryInterface, Sequelize) {
@@ -23,6 +18,5 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.removeColumn('Users', 'userId');
   }
 };
