@@ -89,15 +89,15 @@ const sendOTP = (async (req, res) => {
         const setTokenDB = await EmailDB.create({ address: req.body.email, token: hashedToken });
 
         if (setTokenDB) {
-            res.status(200).json({ message: 'OTP sent' });
+            res.status(200).json({ message: 'OTP sent', status: true });
         }
         else {
-            res.status(500).json({ message: 'Error in creating token' });
+            res.status(500).json({ message: 'Error in creating token', status: false });
         }
     }
     catch (error) {
         console.error('Error sending OTP email:', error);
-        res.status(500).json({ message: 'Failed to send OTP', error: error });
+        res.status(500).json({ message: 'Failed to send OTP', error: error, status: false });
     }
 });
 
@@ -109,10 +109,10 @@ const verifyOTP = (async (req, res) => {
     if (retrieveDBToken) {
         // Destroy Email and Table data from DB.
         await EmailDB.destroy({ where: { address: req.body.email } });
-        res.status(200).json({ message: 'Email verified successfully' });
+        res.status(200).json({ message: 'Email verified successfully', status: true });
     }
     else {
-        res.status(500).json({ message: 'Failed to verify OTP' });
+        res.status(500).json({ message: 'Failed to verify OTP', status: false });
     }
 });
 

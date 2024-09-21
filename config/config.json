@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "freedb_meeting_user",
-    "password": "yFVzt$76Vc2#NU&",
-    "database": "freedb_meeting_db",
-    "host": "sql.freedb.tech",
+    "username": "sql8732637",
+    "password": "92vEBX313f",
+    "database": "sql8732637",
+    "host": "sql8.freesqldatabase.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "freedb_woorkroom",
-    "password": "b4DcK2*aQJb!R4Z",
-    "database": "freedb_woorkroom",
-    "host": "sql.freedb.tech",
+    "username": "sql8732637",
+    "password": "92vEBX313f",
+    "database": "sql8732637",
+    "host": "sql8.freesqldatabase.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "freedb_woorkroom",
-    "password": "b4DcK2*aQJb!R4Z",
-    "database": "freedb_woorkroom",
-    "host": "sql.freedb.tech",
+    "username": "sql8732637",
+    "password": "92vEBX313f",
+    "database": "sql8732637",
+    "host": "sql8.freesqldatabase.com",
     "dialect": "mysql"
   }
 }
