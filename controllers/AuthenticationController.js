@@ -1,10 +1,11 @@
 const { User } = require("../models");
 
 const createAccount = (async (req, res) => {
-    const uuid = crypto.randomUUID();
+    const { v4: uuidv4 } = require('uuid');
+    const uuid = uuidv4();
     try {
-        const user = await User.create({ fullNames: req.body.name, email: req.body.email, password: req.body.password, userId: uuid });
-    
+        const user = await User.create({ fullNames: req.body.name, email: req.body.email, password: req.body.password, userId: uuid, orgDomain: req.body.orgDomain });
+
         if (user) {
             res.status(200).json({ message: 'User Account Created', status: true });
         }
