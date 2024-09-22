@@ -39,7 +39,7 @@ const createAccount = async (req, res) => {
                 // Generate the token
                 const token = jwt.sign(userData, secretKey, { expiresIn: '48h' });
 
-                res.status(200).json({ message: 'User Account Created', lynchpin: token, status: true });
+                res.status(200).json({ message: 'User Account Created', userData: userData, lynchpin: token, status: true });
             } else {
                 res.status(500).json({ message: 'Error in creating account', status: false });
             }
@@ -69,7 +69,7 @@ const loginAccount = async (req, res) => {
             };
             // Generate the token
             const token = jwt.sign(userData, secretKey, { expiresIn: '48h' });
-            res.status(200).json({ lynchpin: token, status: true });
+            res.status(200).json({ lynchpin: token, userData: userData, status: true });
         }
 
     } catch (error) {
@@ -77,7 +77,26 @@ const loginAccount = async (req, res) => {
     }
 };
 
+
+const lynchpinValidate = async (req, res) => {
+    jwt.verify(req.body.token, secretKey, (err, decoded) => {
+        if (err) {
+            console.error('Error decoding token:', err);
+        } else {
+            console.log('Decoded user data:', decoded);
+            // Access the user data from the decoded token
+            const userData = {
+                name: decoded.name,
+                email: decoded.email,
+                orgDomain: decoded.orgDomain
+            };
+            res.status(200).json({ userData: userData, status: true });
+        }
+    });
+}
+
 module.exports = {
     createAccount,
-    loginAccount
+    loginAccount,
+    lynchpinValidate
 };
